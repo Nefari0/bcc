@@ -1,0 +1,109 @@
+.main-page {
+    /* margin: 0%; */
+    /* padding: 0%; */
+    height: 100vh;
+    width: 100vw;
+    /* background-color: blue; */
+     display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+    /* align-items: flex-start; */
+    align-items: center;
+    align-content: center;
+    /* background-color: #f8f2f2; */
+    background-color: blue;
+}
+
+.page {
+    margin: auto;
+    /* padding: 0%; */
+    height: 100vh;
+    /* width: 100vw; */
+    width: 68.5%;
+    /* background-color: blue; */
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+    align-content: center;
+    /* background-color: #f8f2f2; */
+    background-color: red;
+}
+
+.hide-page {
+    /* height: 100vh; */
+    /* width: 10vw; */
+
+    height: 100vh;
+    width: 200px;
+    background-color: red;
+}
+
+/* .top {
+    height: 10vh;
+    width: 100%;
+    background-color:#f8f2f2;
+     margin: 5vh;
+}  */
+
+/* .cats {
+    float: center;
+    margin: 0%;
+    padding: 0%;
+} */
+
+.dark-h1 {
+    color: #555;
+}
+
+.square {
+    max-width: 440px;
+    height: 50vh;
+    /* height: 241px; */
+    /* width: 50%; */
+    /* height: auto; */
+    /* height: 50%; */
+    /* overflow: hidden; */
+    background-color: orange;
+    margin: 0%;
+    padding: 0%;
+}
+
+/* .hide-square {
+    height: 200px;
+    width: 100%;
+    width: 100px;
+    background-color: red;
+} */
+
+.pic {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.small-pic {
+    width: 200px;
+    margin: 0;
+    height: 132px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.cat-list-hide {
+    height: 0px;
+    width: 0px;
+    /* background-color: yellow; */
+}
+
+.cat-list {
+    height: 100%;
+    width: 400px;
+    margin: 0px;
+    margin-right: 200px;
+    background-color: salmon;
+}

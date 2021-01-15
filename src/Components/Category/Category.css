@@ -1,0 +1,67 @@
+/* .square {
+    height: 45vh;
+    width: 40vw;
+    width: 25vw;
+    background-color: orange;
+    margin-left: 5vh;
+    margin: 1vh;
+} */
+
+/* .square {
+    width: 360px;
+    height: 241px;
+    height: 50vh;
+    width: 66vh;
+    height: 50%;
+    width: 50%;
+    background-color: orange;
+    margin: 0%;
+} */
+
+/* .square {
+    max-width: 440px;
+    height: 50vh;
+    height: 241px;
+    width: 50%;
+    height: auto;
+    height: 50%;
+    overflow: hidden;
+    background-color: orange;
+    margin: 0%;
+}
+
+.hide-square {
+    height: 10%;
+    width: 100%;
+    width: 100px;
+    background-color: red;
+}
+
+.pic {
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.small-pic {
+    max-width: 200px;
+    margin: 0;
+    height: 132px;
+    overflow: hidden;
+    background-color: #000;
+} */
+
+.pic img{
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+    transform: scale(1.15);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.pic img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}

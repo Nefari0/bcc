@@ -1,0 +1,15 @@
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.long-copy{
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+.section-features .long-copy {
+    margin-bottom: 30px;
+}

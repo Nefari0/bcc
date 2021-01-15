@@ -1,0 +1,1 @@
+SELECT * FROM site_user WHERE email = $1
