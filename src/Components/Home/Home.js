@@ -16,19 +16,35 @@ export default class Home extends Component {
             email: '',
             password: '',
             user:{},
-            welcome:''
+            welcome:'',
+            text:{
+                recipient:'',
+                textMesage:'this is a text message'
+            }
         };
         this.register = this.register.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
+        this.sendText = this.sendText.bind(this);
 
     }
 
     updateUser(user) {
-        console.log('this is from update user func',user)
+        console.log('this is from updateUser func',user)
         this.setState({
             user,
         })
+    }
+
+    sendText(){
+        const { text } = this.state
+
+        fetch(`http://localhost:4003/send-text?recipient=${text.recipient}&textmessage=${text.textMesage}`).catch(err => console.log('this is fired from setText()',err))
+    }
+
+    handlePhoneNum(value){
+        const { text } = this.state
+        this.setState({ text : value })
     }
 
     handleEmailInput(value) {
@@ -72,7 +88,7 @@ export default class Home extends Component {
     }
 
     render() {
-        const { email,password } = this.state;
+        const { email,password,text } = this.state;
         const { user } = this.state;
         console.log('THIS IS USER!!!!!',user.isAdmin)
 
@@ -96,8 +112,10 @@ export default class Home extends Component {
                 <div className="sign-in">
                     <input placeholder="email" type="text" value={email} onChange={e =>this.handleEmailInput(e.target.value)}></input>
                     <input placeholder="password" type="password" value={password} onChange={e => this.handlePasswordInput(e.target.value)}></input>
+                    <input placeholder="phone number" type="text" value={password} onChange={e => this.handlePhoneNum(e.target.value)}></input>
                 </div>
                 <p className="register" onClick={this.register}>join now!</p>
+                <p className="register" onClick={this.sendText}>text message</p>
                 {/* <p className="register" onClick={this.logout}>log out</p> */}
                 
                 

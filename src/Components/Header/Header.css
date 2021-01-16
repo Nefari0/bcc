@@ -36,9 +36,6 @@
   }
 
   .nav-bar {
-    /* padding-top: 40px; */
-    /* padding-left: 15px; */
-    /* padding-left: 10vw; */
     padding-right: 15px;
     display: flex;
     flex-direction: row;
@@ -47,15 +44,6 @@
     align-items: baseline;
     align-content: space-between;
   }
-
-  /* .App-header {
-    display: flex;
-    justify-content: space-between;
-    justify-content: space-around;
-    width: 100vw;
-    height: 50px;
-    align-items: center;
-  } */
 
   .logo-text {
     color: white;
@@ -67,6 +55,7 @@
 
   .links {
     /* padding-left: 100vh; */
+    margin-right: 130px;
     color: white;
     display: flex;
       flex-direction: row;
@@ -76,8 +65,74 @@
       align-content: stretch;
   }
 
-  @media (max-width: 512px) {
-    h3 {
+  .mobile-nav {
+    color: white;
+    margin-top: 50px;
+    margin-right: 100px;
+    position: absolute;
+    top: 5vh;
+    right: 10vw;
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 40vh;
+    justify-content: space-evenly;
+    /* padding: 15px; */
+    /* padding-left: 50px; */
+    overflow: hidden;
+    opacity: 100;
+    transition: all 500ms;
+    z-index: 5;
+  }
+
+  .mobile-nav-hide {
+    height: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  .hamburger {
+    height: 80%;
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    .links {
+      display: none;
+      
+    }
+
+    .hamburger {
+      display: inline-block;
+      margin-right: 100px;
+    }
+  
+    /* h3 {
       font-size: 16px;
+
+    } */
+  }
+
+  @media (max-width:470px) {
+    .hamburger {
+      display: inline-block;
+      margin-right: 50px;
+    }
+
+    .mobile-nav {
+      margin-right: 30px;
     }
   }
+
+  @media (max-height: 360px) {
+    .mobile-nav {
+      height: 80vh;
+      /* background-color: beige; */
+      justify-content: center;
+
+    }
+
+    
+}

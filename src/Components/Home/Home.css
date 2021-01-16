@@ -85,7 +85,7 @@ input[type=submit] {
 
 .register {
     margin-left:110px;
-    color: #f8f2f2;
+    color: #cf6d17;
 }
 
 .sign-in {
@@ -108,21 +108,53 @@ input[type=submit] {
 
 @media (max-width: 730px) {
     h1 {
-        font-size: 25px;
+        font-size: 30px;
         margin: 10px;
     }
 }
 
 @media (max-width: 610px) {
     h1 {
-        font-size: 20px;
+        /* font-size: 30px; */
         margin: 10px;
     }
 }
 
-/* @media (max-width: 520px) {
-    h1 {
-        font-size: 20px;
-        margin: 10px;
+@media (max-width: 470px) {
+    .home {
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: nowrap; */
+        justify-content: center;
+        align-items: center;
+        align-content: stretch;
+        /* text-align: center; */
+        margin: auto;
     }
-} */
+    
+    h1 {
+        /* font-size: 30px; */
+        /* padding-top: 100px; */
+        /* padding-left: 33vw; */
+        
+        /* margin-bottom: 100px; */
+        margin: auto;
+    }
+
+    .sign-in {
+        margin-top: auto;
+    }
+
+    .btn {
+        width: 80vw;
+        margin: auto;
+    }
+}
+
+@media (max-height: 360) {
+    .home {
+        margin: auto;
+    }
+
+    
+}

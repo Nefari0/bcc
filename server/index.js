@@ -1,0 +1,100 @@
+
+require('dotenv').config();
+const express = require('express')
+const session = require('express-session')
+const massive = require('massive')
+const productCtrl = require('./controllers/productsController')
+const authController = require('./controllers/authController')
+const cartController = require('./controllers/cartController')
+const auth = require('./middleware/authMiddleware');
+const productsController = require('./controllers/productsController');
+const axios = require('axios').default
+const twilio = require('twilio');
+const cors = require('cors');
+
+
+// const PORT = 4001
+const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
+
+const app = express();
+app.use(express.json());
+
+
+app.use(
+        session({
+                resave: true,
+                saveUninitialized: false,
+                secret: SESSION_SECRET
+            }),
+            cors()
+        )
+        
+        // auth end points
+        app.post('/auth/register',authController.register)
+        app.post('/auth/login',authController.login)
+        app.get('/auth/logout',authController.logout)
+        
+        // cart end points
+        app.post('/api/orders/users', cartController.addToCart)
+        // app.post('/api/orders/users/:product_id', cartController.removeFromCart)
+
+//-------------- twilio end points and requirements------------------//
+        
+        // const accountSid = ''
+        // const authToken = ''
+        // const client = (accountSid, authToken)
+
+        // app.get('/send-text', (req,res) => {
+            //_GET variables,passed viw query sting
+            // const { recipient, textMessage } = req.query
+
+            
+            // send text
+        //     client.message.create({
+        //         body:textMessage,
+        //         to:recipient,
+        //         from:'number' //from twilio
+        //     }).then((message) => console.log(message.body))
+        // })
+        
+    // -------------code below is from twilio---------------------\
+
+        var options = {
+        method: 'POST',
+        url: 'https://twilio-sms.p.rapidapi.com/2010-04-01/Accounts/%7BAccountSid%7D/Messages.json',
+        params: {from: '<REQUIRED>', body: '<REQUIRED>', to: '<REQUIRED>'},
+        headers: {
+            'x-rapidapi-key': '52760671eamsh2713f40d34d3015p125d3djsn44c5fca3f008',
+            'x-rapidapi-host': 'twilio-sms.p.rapidapi.com'
+        }
+        };
+
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+        }).catch(function (error) {
+            console.error(error);
+        });
+    
+    // --------------------------------------------------------------------
+        
+        
+        // products end points
+        // app.get('/api/products/all',productCtrl.getAll)
+        app.get('/api/products/all',productCtrl.getAll)
+        app.get('/api/products/:product_id',productCtrl.getOne)
+        app.post('/api/products', productsController.addProduct)
+        // app.get('/api/products/all/category', productCtrl.getCategory)
+        // app.get('/api/products/all/cat', productCtrl)
+        // app.get('/api/products/:product_id/category',productCtrl.getOne) <-use this example
+        
+        massive({
+            connectionString: CONNECTION_STRING,
+            ssl: {
+                rejectUnauthorized: false,
+            }
+        }).then((dbInstance) => {
+            app.set('DB',dbInstance);
+            console.log('DB connected');
+            app.listen(SERVER_PORT, () => console.log(`server ready on ${SERVER_PORT}`))
+        });
+        
