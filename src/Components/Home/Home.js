@@ -4,12 +4,15 @@ import Categories from '../Categories/Categories'
 import { HashRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { connect } from 'react-redux';
+import { requestProducts } from './../../ducks/productsReducer'
 // import authMiddleware from './'
 
 
-export default class Home extends Component {
-    constructor() {
-        super();
+// export default class Home extends Component {
+class Home extends Component {
+    constructor(props) {
+        super(props);
 
         this.state = {
             toggleSignIn:false,
@@ -29,6 +32,11 @@ export default class Home extends Component {
 
     }
 
+    componentDidMount(){
+        this.props.requestProducts()
+        console.log('Top')
+    }
+
     updateUser(user) {
         console.log('this is from updateUser func',user)
         this.setState({
@@ -36,10 +44,17 @@ export default class Home extends Component {
         })
     }
 
-    sendText(){
-        const { text } = this.state
+    // --------the code below uses twilio services----------
+    // sendText(){
+    //     const { text } = this.state
 
-        fetch(`http://localhost:4003/send-text?recipient=${text.recipient}&textmessage=${text.textMesage}`).catch(err => console.log('this is fired from setText()',err))
+    //     fetch(`http://localhost:4003/send-text?recipient=${text.recipient}&textmessage=${text.textMesage}`).catch(err => console.log('this is fired from setText()',err))
+    // }
+
+    sendText() {
+        axios.get('/api/nexmo/confirm').then(() =>{}).catch(err => {
+            alert('sendText() didnt work properly')
+        })
     }
 
     handlePhoneNum(value){
@@ -139,3 +154,9 @@ export default class Home extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return state.medium;
+}
+
+export default connect(mapStateToProps, {requestProducts})(Home)
+// export default Home

@@ -7,10 +7,12 @@ const productCtrl = require('./controllers/productsController')
 const authController = require('./controllers/authController')
 const cartController = require('./controllers/cartController')
 const auth = require('./middleware/authMiddleware');
+const nexmoCtrl = require('./controllers/nexmoController')
 const productsController = require('./controllers/productsController');
 const axios = require('axios').default
 const twilio = require('twilio');
 const cors = require('cors');
+// const Nexmo = require('nexmo')
 
 
 // const PORT = 4001
@@ -70,13 +72,15 @@ app.use(
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data);
+            console.log('this is response data',response.data);
         }).catch(function (error) {
-            console.error(error);
+            console.error('this is a catch error',error);
         });
     
     // --------------------------------------------------------------------
         
+        // nexmo end points
+        app.get('api/nexmo/confirm', nexmoCtrl.sendUserConfirm)
         
         // products end points
         // app.get('/api/products/all',productCtrl.getAll)

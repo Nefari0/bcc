@@ -8,9 +8,23 @@ const initialState = {
 const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS';
 
 export function requestProducts() {
-    let product = axios.get('/api/products/all')
+    let products = axios.get('/api/products/all').then(res => res.data);
+    return { 
+        type: REQUEST_PRODUCTS,
+        payload:products
+    }
 }
 
 export default function productReducer(state = initialState, action) {
-    return state
+    switch (action.type) {
+        case REQUEST_PRODUCTS + '_PENDING':
+            return {...state,loading:true}
+
+        case REQUEST_PRODUCTS + '_FULLFILED':
+            return { loading: false, product: action.payload }
+        
+        default:
+            return state;
+
+    }
 }
