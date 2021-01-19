@@ -26,10 +26,11 @@ VALUES (
 CREATE TABLE site_user (
     user_id SERIAL PRIMARY KEY,
     user_name VARCHAR(100),
+    email VARCHAR(100)
+    phone DECIMAL(10)
     first_name VARCHAR(100),
     last_name VARCHAR(100),
     hash text
-    email VARCHAR(100)
     is_admin BOOLEAN
 );
 -- main user user_id:34, email:c@cmont.com, password:pass

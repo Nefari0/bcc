@@ -1,0 +1,18 @@
+.user-main {
+    /* height: 800px; */
+    height: 100vh;
+    /* width: 800px; */
+    width: 100vw;
+    margin: auto;
+    /* background-color: brown; */
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	/* justify-content: space-around; */
+	align-items: center;
+	/* align-content: space-between; */
+}
+
+h3 {
+    color: black;
+}

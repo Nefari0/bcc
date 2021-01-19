@@ -84,7 +84,9 @@ input[type=submit] {
 }
 
 .register {
+    margin: 0%;
     margin-left:110px;
+    /* margin-bottom: 0px; */
     color: #cf6d17;
 }
 

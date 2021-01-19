@@ -28,15 +28,19 @@ app.use(
                 saveUninitialized: false,
                 secret: SESSION_SECRET
             }),
-            cors()
+            // cors()
         )
         
         // auth end points
         app.post('/auth/register',authController.register)
         app.post('/auth/login',authController.login)
         app.get('/auth/logout',authController.logout)
+
+        // user end points
+        // app.get('/api/users/all', userController.getAll)
         
         // cart end points
+        app.get('/api/orders/all', cartController.getAllOrders)
         app.post('/api/orders/users', cartController.addToCart)
         // app.post('/api/orders/users/:product_id', cartController.removeFromCart)
 

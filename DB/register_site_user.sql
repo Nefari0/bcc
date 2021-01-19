@@ -1,5 +1,5 @@
-INSERT INTO site_user (email,hash)
-VALUES($1,$2)
+INSERT INTO site_user (email,hash,phone)
+VALUES($1,$2,$3)
 
 -- TEST data - (user_name,first_name,last_name,email,hash)
 

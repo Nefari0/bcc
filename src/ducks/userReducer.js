@@ -1,16 +1,52 @@
-import { useReducer } from "react"
+
+import axios from 'axios'
 
 const initialState = {
-    loading:false,
-    users:[]
-}
+    user1:'this is user',
+    user: [],
+  }
+  
+//   const REGISTER_USER
+  const LOGIN_USER = 'LOGIN_USER'
+  const SEND_USER_INFO = 'SEND_USER_INFO'
+  const LOGOUT = 'LOGOUT'
+  
+  //* ACTION CREATORS
+  export function getUserInfo(user) {
+    //   console.log('this is from redux',user)
+    return {
+      type: LOGIN_USER,
+      payload: user,
+    }
+  }
 
-const REQUEST_USERS = 'REQUEST_USERS';
-
-// export function requestUsers(params) {
-//     let users = axios.get('/')
-// }
-
-export default function userReducer(state = initialState, action) {
-    return state
-}
+  export function sendUserInfo(){
+      const { username } = initialState.user
+      return {
+          type: SEND_USER_INFO,
+          payload: initialState.user
+      }
+  }
+  
+  export function logout() {
+    return {
+      type: LOGOUT,
+    }
+  }
+  
+  //* REDUCER FUNCTION
+  export default function reducer(state = initialState, action) {
+    switch (action.type) {
+      case LOGIN_USER:
+          console.log('this is from redux',action)
+        return { ...state, username: action.payload, isLoggedIn: true }
+      case SEND_USER_INFO:
+          console.log('this is action from send user', state)
+        return state 
+      case LOGOUT:
+        return initialState
+      default:
+        return state
+    }
+  }
+  

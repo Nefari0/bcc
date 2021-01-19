@@ -5,6 +5,7 @@ import Categories from './Components/Categories/Categories';
 import Category from './Components/Category/Category';
 import Header from './Components/Header/Header'
 import AdminPage from './Components/AdminPage/AdminPage';
+import EditProduct from './Components/AdminPage/EditProducts';
 import AddProduct from './Components/AdminPage/AddProduct';
 
 export default (
@@ -14,5 +15,6 @@ export default (
         <Route path="/cats" component={Categories}/>
         <Route path="/admin" component={AdminPage}/>
         <Route path="/addprod" component={AddProduct}/>
+        <Route path="/menu/:id" component={EditProduct}/>
     </Switch>
 )

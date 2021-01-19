@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 // import Contact from './Components/Contact/Contact'
 import AdminPage from './Components/AdminPage/AdminPage'
+import UserPage from './Components/UserPage/UserPage'
 import { HashRouter } from 'react-router-dom';
 import routes from "./routes"
 
@@ -15,6 +16,7 @@ function App(props) {
       <Header/>
       {/* <AdminPage/> */}
       {routes}
+      {/* <UserPage/> */}
       {/* <Home/> */}
     </div>
     </HashRouter>

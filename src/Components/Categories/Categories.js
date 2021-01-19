@@ -3,43 +3,40 @@ import Category from '../Category/Category';
 import MenuDivs from '../MenuDivs'
 import './Categories.css';
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { requestProducts } from './../../ducks/productsReducer'
 // import theList from './testdata.js'
 import theList  from './data.js'
 
 
-export default class Categories extends Component {
-    constructor() {
-        super();
+// export default class Categories extends Component {
+class Categories extends Component {
+    constructor(props) {
+        super(props);
 
         this.state = {
             menu:[],
-            menuObj:{
-                cake:['cake'],
-                cookies:['cookies'],
-                bread:['bread'],
-                pastries:['pastries']
-            },
+            menuObj:{},
             toggle:true,
             theList:theList
         }
         this.toggleOpen = this.toggleOpen.bind(this)
     }
 
+    // componentDidUpdate(){
+    // if (prevProps !== this.props) {
+    //     this.setState({ menu : {} })
+    // }
     componentDidMount(){
-        // componentDidUpdate(){
-        // if (prevProps !== this.props) {
-        //     this.setState({ menu : {} })
-        // }
         axios.get('/api/products/all').then(res => {
 
             this.setState({ menu: res.data})
-            // console.log('catttts',this.state.menu[0].category)
-
-            
-
         })
-
     }
+
+    // componentDidMount(){
+    //     this.props.requestProducts()
+    // }
 
     toggleOpen(){
         this.setState({ toggle: !this.state.toggle})
@@ -52,26 +49,22 @@ export default class Categories extends Component {
             return <Category menu={element} key={element.product_id} toggleOpenFn={this.toggleOpen} toggleFn={this.state.toggle}/>
         })
 
-        // console.log('mmmeeennnu',this.state.menu[1].ategory)
-
+        
         const mappedlist = menu.map(element => {
             return <MenuDivs menu={element} key={element.product_id}
-        />})
-
-        // {console.log('this.is the maaaaap',mappedMenu)}
-        // const mappedList = =theList.map(element => {
-        //     return element
-        // })
-
-
-        // <Category 
-        // console.log('checking this unit',menu[0])
+            />})
             
         return( 
             <div className="main-page">
+                {console.log(this.props.products)}
                 <div className={`page ${this.state.toggle ? true : 'hide-page'}`}>
                     {mappedMenu}
                 </div>
+
+                {/* <div className={`page ${this.state.toggle ? true : 'hide-page'}`}>
+                    {this.props.products}
+                </div> */}
+
                 <div className={`cat-list-hide ${this.state.toggle ? false : 'cat-list'}`}>
                     {mappedlist}
                 </div>
@@ -81,3 +74,7 @@ export default class Categories extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    return state
+}
+export default connect(mapStateToProps, {requestProducts})(Categories)

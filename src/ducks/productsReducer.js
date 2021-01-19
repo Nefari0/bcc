@@ -1,17 +1,18 @@
 import axios from 'axios'
 
 const initialState = {
-    loading:false,
-    products:[]
+    products:[],
+    loading:true,
 }
 
 const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS';
 
 export function requestProducts() {
-    let products = axios.get('/api/products/all').then(res => res.data);
+    const products = axios.get('/api/products/all')
+    console.log('this is from the reducer',products)
     return { 
         type: REQUEST_PRODUCTS,
-        payload:products
+        payload:products,
     }
 }
 
@@ -21,7 +22,10 @@ export default function productReducer(state = initialState, action) {
             return {...state,loading:true}
 
         case REQUEST_PRODUCTS + '_FULLFILED':
-            return { loading: false, product: action.payload }
+            return { ...state, loading: false, product: action.payload.data }
+
+        case REQUEST_PRODUCTS + '_REJECTED':
+            return {...state, loading: false }
         
         default:
             return state;

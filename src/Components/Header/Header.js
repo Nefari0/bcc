@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState, React } from 'react'
+import { connect } from 'react-redux'
+import { sendUserInfo } from './../../ducks/userReducer'
 import './Header.css';
 import { Link } from 'react-router-dom'
 
-export default function Header(props) {
+function Header(props) {
     const [ isMenuOpen, setMenuOpen ] = useState(false)
+
+    useEffect(() => {
+        props.sendUserInfo()
+    }, [])
+    // props.sendUserInfo()
 
     function toggleMenu() {
         setMenuOpen(!isMenuOpen)
@@ -12,7 +19,9 @@ export default function Header(props) {
     return(
         
         <header className="app">
-            <h3>I AM THE LOGO</h3>
+            {console.log('hooks props',props)}
+            {/* <h3 onClick={() => props.sendUserInfo()}>I</h3> */}
+            <h3>{props.user1}</h3>
             <nav className="nav-bar">
                 <div className="links">
                     <Link to="/"><p className="nav-item" style={{textDecoration:'none',color:'white'}}>HOME</p></Link>
@@ -38,5 +47,11 @@ export default function Header(props) {
 
         
     )
-
+    
 }
+function mapStateToProps(state){
+    return state
+}
+export default connect(mapStateToProps, {sendUserInfo})(Header)
+
+// export default Header
