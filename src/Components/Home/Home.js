@@ -77,7 +77,7 @@ class Home extends Component {
         const from = '14793800458';
         // const to = '13852506288';
         const to = `1${phone}`;
-        const text = 'Welcome to Culinary Creations';
+        const text = "Welcome to Britany's Culinary Creations";
 
         nexmo.message.sendSms(from, to, text);
     }
@@ -145,20 +145,21 @@ class Home extends Component {
 
 
                 <a class="btn btn-full" href="#"><Link to="/cats" style={{textDecoration:'none',color:'white'}}>Menu</Link></a>
-                <a class="btn btn-ghost" href="#" onClick={this.login}>Sign In</a>
+                {user.username ? (<a class="btn btn-ghost" href="#" onClick={this.logout}>Logout</a>) : (<a class="btn btn-ghost" href="#" onClick={this.login}>Sign In</a>)}
+                {/* <a class="btn btn-ghost" href="#" onClick={this.login}>Sign In</a> */}
 
                 <div className="sign-in">
                     <input placeholder="email" type="text" value={email} onChange={e =>this.handleEmailInput(e.target.value)}></input>
                     <input placeholder="password" type="password" value={password} onChange={e => this.handlePasswordInput(e.target.value)}></input>
                     <input placeholder="phone number" type="text" value={phone} onChange={e => this.handlePhoneNum(e.target.value)}></input>
                 </div>
-                <p className="register" onClick={this.register}>join now!</p>
-                <p className="register" onClick={()=> this.sendText}>redux test</p>
+                {user.username ? (<p></p>) : (<p className="register" onClick={this.register}>join now!</p>)}
+                {/* <p className="register" onClick={()=> this.sendText}>redux test</p> */}
                 
                 
                  {user.username ? (<p className="register" onClick={this.logout}>log out</p>) : (<p></p>)}
                  {user.username ? (<p className="register" onClick={this.logout}>shopping cart</p>) : (<p></p>)}
-                 {user.isAdmin ? (<Link to="/admin"><p className="register" >admin page</p></Link> ) : (<p></p>)}
+                 {user.isAdmin ? (<Link to="/admin" style={{textDecoration:'none'}} ><p className="register" >admin page</p></Link> ) : (<p></p>)}
     
             </section>
 

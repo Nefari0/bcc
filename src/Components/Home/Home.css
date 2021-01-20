@@ -1,5 +1,6 @@
 .home {
-    height: 90vh;
+    /* height: 90vh; */
+    height: 100vh;
     width: 100vw;
     /* background-color: blue; */
 }
@@ -153,9 +154,19 @@ input[type=submit] {
     }
 }
 
-@media (max-height: 360) {
-    .home {
+@media (max-width: 330) {
+    h1 {
+        padding-bottom: 100px;
+    }
+
+    /* .home {
         margin: auto;
+        height: 200vh;
+    } */
+
+    .btn {
+        width: 10vw;
+        margin: 20px;
     }
 
     

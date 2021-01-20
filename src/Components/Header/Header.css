@@ -21,6 +21,7 @@
       justify-content: space-around;
       align-items: baseline;
       align-content: stretch;
+      background-attachment: fixed
   }
   
   h3 {    

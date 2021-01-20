@@ -13,5 +13,10 @@ module.exports = {
     getAllOrders: async (req,res) => {
         const orders = await req.app.get('DB').get_all_orders();
         return res.status(200).send(orders)
-    }
+    },
+
+    joinOrders: async (req,res) => {
+        const orders = await req.app.get('DB').join_user_orders();
+        return res.status(200).send(orders)
+    },
 }

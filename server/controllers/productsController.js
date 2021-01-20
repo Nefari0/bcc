@@ -33,7 +33,15 @@ module.exports = {
         // const newItem = await DB.add_test_item([info]) //this line for testing
         return res.status(200).send(newItem);
 
-    }
+    },
+
+    updateProductPrice: async (req,res,next) => {
+        const DB = req.app.get('DB')
+        const { price } = req.body
+        const { product_id } = req.params
+        const item = await DB.update_product_price([price,product_id])
+        return res.status(200).send(item)
+    },
 
     // getAll2: ( req, res, next ) => {
     //     const dbInstance = req.app.get('DB');

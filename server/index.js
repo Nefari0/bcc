@@ -9,6 +9,7 @@ const cartController = require('./controllers/cartController')
 const auth = require('./middleware/authMiddleware');
 const nexmoCtrl = require('./controllers/nexmoController')
 const productsController = require('./controllers/productsController');
+const userController = require('./controllers/userController')
 const axios = require('axios').default
 const twilio = require('twilio');
 const cors = require('cors');
@@ -37,11 +38,12 @@ app.use(
         app.get('/auth/logout',authController.logout)
 
         // user end points
-        // app.get('/api/users/all', userController.getAll)
+        app.get('/api/users/all', userController.getAllUsers)
         
-        // cart end points
+        // cart/order end points
         app.get('/api/orders/all', cartController.getAllOrders)
         app.post('/api/orders/users', cartController.addToCart)
+        app.get('/api/orders/join', cartController.joinOrders)
         // app.post('/api/orders/users/:product_id', cartController.removeFromCart)
 
 //-------------- twilio end points and requirements------------------//
@@ -91,6 +93,7 @@ app.use(
         app.get('/api/products/all',productCtrl.getAll)
         app.get('/api/products/:product_id',productCtrl.getOne)
         app.post('/api/products', productsController.addProduct)
+        app.post('/api/products/update/price/:product_id', productsController.updateProductPrice)
         // app.get('/api/products/all/category', productCtrl.getCategory)
         // app.get('/api/products/all/cat', productCtrl)
         // app.get('/api/products/:product_id/category',productCtrl.getOne) <-use this example

@@ -15,6 +15,6 @@ export default (
         <Route path="/cats" component={Categories}/>
         <Route path="/admin" component={AdminPage}/>
         <Route path="/addprod" component={AddProduct}/>
-        <Route path="/menu/:id" component={EditProduct}/>
+        <Route path="/products/:product_id" component={EditProduct}/>
     </Switch>
 )

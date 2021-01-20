@@ -11,7 +11,7 @@
 	flex-wrap: wrap;
 	/* justify-content: space-around; */
 	align-items: center;
-	/* align-content: space-between; */
+	align-content: center;
 }
 
 h2 {
@@ -19,14 +19,26 @@ h2 {
     margin: 0%;
 }
 
+
 .admin-h3 {
+    color: white;
+    margin-bottom: 1%;
+}
+
+h4 {
+    font-weight: 300;
+    margin-bottom: 0%;
     color: white;
 }
 
+::-webkit-scrollbar {
+    width: 20px;
+  }
+
 .segment {
     margin: 15px;
-    /* height: 300px; */
-    height: 40%;
+    height: 221px;
+    /* height: 40%; */
     width: 333px;
     /* width: 45%; */
     /* background-color: yellow; */
@@ -67,7 +79,7 @@ h2 {
     color: white;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	justify-content: flex-start;
 	align-items: center;
 	align-content: center;
@@ -80,6 +92,28 @@ h2 {
     /* margin-bottom: 5%; */
 }
 
-/* .h-title {
+.list-item {
+    margin-bottom: 10%;
+}
 
-} */
+.form-popup {
+    height: 100px;
+    width: 100px;
+    background-color: blanchedalmond;
+}
+
+.button {
+    
+    margin-right: 10%;
+
+}
+
+.edit-pic {
+    height: 100px;
+}
+
+@media  (max-width: 360) {
+    .main {
+        height: 1280px;
+    }
+}
