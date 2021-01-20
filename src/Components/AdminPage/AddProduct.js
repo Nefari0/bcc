@@ -55,8 +55,6 @@ const AddProduct = (props) => {
 
                     <li className="list">photo<input type="text" value={photo_url} onChange={e => handlePhoto(e.target.value)}></input></li>
 
-                    {/* <li className="list">name<input type="text" value={name} onChange={e => handleNameInput(e.target.value)}></input></li> */}
-
                     <li className="list"><button onClick={addItem}>ADD</button></li>
                 </ul>
                 

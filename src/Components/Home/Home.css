@@ -127,20 +127,13 @@ input[type=submit] {
     .home {
         display: flex;
         flex-direction: column;
-        /* flex-wrap: nowrap; */
         justify-content: center;
         align-items: center;
         align-content: stretch;
-        /* text-align: center; */
         margin: auto;
     }
     
     h1 {
-        /* font-size: 30px; */
-        /* padding-top: 100px; */
-        /* padding-left: 33vw; */
-        
-        /* margin-bottom: 100px; */
         margin: auto;
     }
 
@@ -155,14 +148,15 @@ input[type=submit] {
 }
 
 @media (max-width: 330) {
+
+    .home {
+        height: 100vh;
+        width: 100vw;
+    }
+
     h1 {
         padding-bottom: 100px;
     }
-
-    /* .home {
-        margin: auto;
-        height: 200vh;
-    } */
 
     .btn {
         width: 10vw;

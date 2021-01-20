@@ -12,6 +12,11 @@ const initialState = {
   const LOGOUT = 'LOGOUT'
   
   //* ACTION CREATORS
+
+  export function login(params) {
+    
+  }
+
   export function getUserInfo(user) {
     //   console.log('this is from redux',user)
     return {

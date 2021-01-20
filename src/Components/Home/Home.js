@@ -34,7 +34,8 @@ class Home extends Component {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.sendText = this.sendText.bind(this);
-        this.handlePhoneNum = this.handlePhoneNum.bind(this)
+        this.handlePhoneNum = this.handlePhoneNum.bind(this);
+        this.updateUser = this.updateUser.bind(this);
 
     }
 
@@ -135,27 +136,23 @@ class Home extends Component {
             <HashRouter>
             <div>
             <section className="home">
-                {/* <h1>Brittany's Culinary Creations</h1> */}
                 
                 {user.username ? (
-                    <h1>{user.username}, Welcome to Brittany's Culinary Creations!</h1>
+                    <h1>{user.username}, Welcome to Culinary Creations!</h1>
                 ) : (
-                    <h1>Brittany's Culinary Creations</h1>
+                    <h1>Culinary Creations</h1>
                 )}
 
 
                 <a class="btn btn-full" href="#"><Link to="/cats" style={{textDecoration:'none',color:'white'}}>Menu</Link></a>
                 {user.username ? (<a class="btn btn-ghost" href="#" onClick={this.logout}>Logout</a>) : (<a class="btn btn-ghost" href="#" onClick={this.login}>Sign In</a>)}
-                {/* <a class="btn btn-ghost" href="#" onClick={this.login}>Sign In</a> */}
 
                 <div className="sign-in">
                     <input placeholder="email" type="text" value={email} onChange={e =>this.handleEmailInput(e.target.value)}></input>
                     <input placeholder="password" type="password" value={password} onChange={e => this.handlePasswordInput(e.target.value)}></input>
                     <input placeholder="phone number" type="text" value={phone} onChange={e => this.handlePhoneNum(e.target.value)}></input>
                 </div>
-                {user.username ? (<p></p>) : (<p className="register" onClick={this.register}>join now!</p>)}
-                {/* <p className="register" onClick={()=> this.sendText}>redux test</p> */}
-                
+                {user.username ? (<p></p>) : (<p className="register" onClick={this.register}>join now!</p>)}                
                 
                  {user.username ? (<p className="register" onClick={this.logout}>log out</p>) : (<p></p>)}
                  {user.username ? (<p className="register" onClick={this.logout}>shopping cart</p>) : (<p></p>)}
@@ -169,9 +166,7 @@ class Home extends Component {
     }
 }
 function mapStateToProps(state) {
-    // return state.medium;
     return state
 }
 
 export default connect(mapStateToProps, {requestProducts,getUserInfo,sendUserInfo})(Home)
-// export default Home
