@@ -43,10 +43,10 @@ const initialState = {
   export default function reducer(state = initialState, action) {
     switch (action.type) {
       case LOGIN_USER:
-          console.log('this is from redux',action)
+          // console.log('this is from redux',action)
         return { ...state, username: action.payload, isLoggedIn: true }
       case SEND_USER_INFO:
-          console.log('this is action from send user', state)
+          // console.log('this is action from send user', state)
         return state 
       case LOGOUT:
         return initialState

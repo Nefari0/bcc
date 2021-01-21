@@ -2,9 +2,9 @@
 
 # dependencies
 /node_modules
-/server/index
+# /server/index
 /.pnp
-/server/index.js
+# /server/index.js
 .pnp.js
 
 # testing

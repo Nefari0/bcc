@@ -138,9 +138,9 @@ class Home extends Component {
             <section className="home">
                 
                 {user.username ? (
-                    <h1>{user.username}, Welcome to Culinary Creations!</h1>
+                    <h1>{user.username}, Welcome to Brittany's Culinary Creations!</h1>
                 ) : (
-                    <h1>Culinary Creations</h1>
+                    <h1>Brittany's Culinary Creations</h1>
                 )}
 
 
