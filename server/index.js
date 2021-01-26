@@ -13,6 +13,7 @@ const userController = require('./controllers/userController')
 const axios = require('axios').default
 const twilio = require('twilio');
 const cors = require('cors');
+
 // const Nexmo = require('nexmo')
 
 
@@ -21,7 +22,7 @@ const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
 const app = express();
 app.use(express.json());
-app.use(express.static(`${__dirname}/../build`))
+app.use( express.static( `${__dirname}/../build`))
 
 
 app.use(
