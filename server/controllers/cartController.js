@@ -16,7 +16,7 @@ module.exports = {
     },
 
     joinOrders: async (req,res) => {
-        const orders = await req.app.get('DB').join_user_orders();
+        const orders = await req.app.get('DB').join_user_orders2();
         return res.status(200).send(orders)
     },
 }

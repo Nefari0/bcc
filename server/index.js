@@ -22,7 +22,13 @@ const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
 const app = express();
 app.use(express.json());
+
+// ---server--- //
 app.use( express.static( `${__dirname}/../build`))
+app.get('*', (req,res) => {
+    res.send(path.join(__dirname, '../build/index.html'))
+})
+
 
 
 app.use(
