@@ -13,6 +13,7 @@ const userController = require('./controllers/userController')
 const axios = require('axios').default
 const twilio = require('twilio');
 const cors = require('cors');
+const path = require('path')
 
 // const Nexmo = require('nexmo')
 
@@ -24,7 +25,7 @@ const app = express();
 app.use(express.json());
 
 // ---server--- //
-app.use( express.static( `${__dirname}/../build`))
+app.use( express.static( __dirname + '/../build'));
 app.get('*', (req,res) => {
     res.send(path.join(__dirname, '../build/index.html'))
 })
@@ -106,6 +107,7 @@ app.use(
         // app.get('/api/products/all/cat', productCtrl)
         // app.get('/api/products/:product_id/category',productCtrl.getOne) <-use this example
         
+
         massive({
             connectionString: CONNECTION_STRING,
             ssl: {
