@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 require('dotenv').config({path: __dirname + '/../.env'});
 const express = require('express')
 const session = require('express-session')
@@ -22,8 +22,8 @@ const path = require('path')
 // const PORT = 4001
 const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
-const app = express();
-app.use(express.json());
+const app = express()
+// app.use(express.json()) // commented out for testing purposes
 
 // ---server was here--- //
 
