@@ -23,7 +23,7 @@ const path = require('path')
 const { SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 
 const app = express()
-// app.use(express.json()) // commented out for testing purposes
+app.use(express.json()) // was commented out for testing purposes
 
 // ---server was here--- //
 
@@ -107,9 +107,10 @@ app.use(
     // app.get('/api/products/:product_id/category',productCtrl.getOne) <-use this example
     
     // ------server -----
-    app.use( express.static( __dirname + '/../build'));
+    // app.use( express.static( __dirname + '/../build')); //origial. line below replaced this one since im not sure if this works properly
+    app.use(express.static(`${__dirname}/../build`))
     app.get('*', (req,res) => {
-    res.send(path.join(__dirname, '../build/index.html'))
+    res.sendFile(path.join(__dirname, '../build/index.html'))
     })
 
 
