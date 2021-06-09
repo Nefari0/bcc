@@ -13,7 +13,7 @@ const productsController = require('./controllers/productsController');
 const userController = require('./controllers/userController')
 const axios = require('axios').default
 const twilio = require('twilio');
-const cors = require('cors');
+// const cors = require('cors');
 const path = require('path')
 
 // const Nexmo = require('nexmo')

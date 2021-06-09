@@ -51,6 +51,6 @@
     ]
   },
   
-  "proxy": "http://localhost:3000/",
-  "main": "server/index.js"
+  "main": "server/index.js",
+  "proxy": "http://localhost:3000/"
 }
