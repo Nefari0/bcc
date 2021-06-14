@@ -1,5 +1,5 @@
 
-// require('dotenv').config();
+require('dotenv').config();
 require('dotenv').config({path: __dirname + '/../.env'});
 const express = require('express')
 const session = require('express-session')
@@ -11,7 +11,8 @@ const auth = require('./middleware/authMiddleware');
 const nexmoCtrl = require('./controllers/nexmoController')
 const productsController = require('./controllers/productsController');
 const userController = require('./controllers/userController')
-const axios = require('axios').default
+// const axios = require('axios').default
+const axios = require('axios')
 const twilio = require('twilio');
 // const cors = require('cors');
 const path = require('path')
